@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Michigan Football Activity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: start;
+            background-color: grey;
+        }
+        #content {
+            padding: 20px;
+            border: 2px solid #ffcb05;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            transition: background-color 0.5s ease-in-out;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #ffcb05;
+            color: #003366;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.2s ease-in-out;
+        }
+        button:hover {
+            background-color: #d88a48;
+            transform: scale(1.1);
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #003366;
+        }
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1 id="mainTitle">Go Blue!</h1>
+        <button id="changeTitleButton">Change Title</button>
+        <div id="message"></div>
+        <button id="addMessageButton">Add Game Day Message</button>
+
+        <h2>Stars of the 2023 Season:</h2>
+        <ul id="playerList">
+            <li>J J McCarthy</li>
+            <li>Blake Corum</li>
+            <li>Will Johnson</li>
+            <li>Zak Zinter</li>
+            <li>Donovan Edwards</li>
+        </ul>
+        <p>
+            <b>URL of this page:</b> <span id="URL"></span><br/>
+            <b>Number of list items on this page:</b> <span id="items"></span><br/>
+            <b>Current date/time:</b> <span id="time"></span><br/>
+        </p>
+        <button id="infoButton">Display Information</button>
+    </div>
+
+    <script>
+        // Step 1: Function to Change Title
+        function changeTitle() {
+            document.getElementById("mainTitle").textContent = "Celebrate Michigan Football!";
+            console.log("Title has been changed!");
+        }
+        document.getElementById("changeTitleButton").addEventListener("click", changeTitle);
+
+        // Step 2: Log message to console
+        console.log("JavaScript is running! Ready to Go Blue!");
+
+        // Step 3: Style the page
+        function stylePage() {
+            document.body.style.backgroundColor = "black"; // Neon Dark Mode
+            document.getElementById("content").style.backgroundColor = "#000033"; // Deep Neon Blue
+            document.getElementById("content").style.color = "#39ff14"; // Neon Green Text
+            document.getElementById("content").style.boxShadow = "0px 0px 20px #ff00ff"; // Neon Pink Glow
+            console.log("Neon theme applied!");
+        }
+
+        let styleButton = document.createElement("button");
+        styleButton.textContent = "Style the Page";
+        styleButton.onclick = stylePage;
+        document.getElementById("content").appendChild(styleButton);
+
+        // Step 4: Add Game Day Message
+        document.getElementById("addMessageButton").addEventListener("click", function() {
+            let gameDayMessage = document.createElement("p");
+            gameDayMessage.textContent = "2023 Champions!";
+            gameDayMessage.classList.add("highlight");
+            document.getElementById("message").appendChild(gameDayMessage);
+        });
+
+        // Step 5: Conditional statement for players
+        const playerItems = document.querySelectorAll("#playerList li");
+        if (playerItems.length > 4) {
+            console.log("Go Blue, so many great players in one season!");
+        }
+
+        // Step 6: Display Information
+        function displayInformation() {
+            document.getElementById("URL").textContent = window.location.href;
+            document.getElementById("items").textContent = playerItems.length;
+            document.getElementById("time").textContent = new Date().toLocaleString();
+        }
+        document.getElementById("infoButton").addEventListener("click", displayInformation);
+    </script>
+</body>
+</html>
